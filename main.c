@@ -10,7 +10,7 @@
 // Debounce delay
 volatile uint16_t pb3_delay = 0;
 volatile uint16_t pb4_delay = 0;
-uint16_t bounce_delay = 0x0FFF;
+const uint16_t bounce_delay = 0x0FFF;
 
 int main(void)
 {
@@ -21,6 +21,7 @@ int main(void)
 
     // Configure PB3 & 4 as inputs
     DDRB &= ~((1 << DDB3) | (1 << DDB4));
+
     // Enable pin change interrupt
     GIMSK |= (1 << PCIE);
 
