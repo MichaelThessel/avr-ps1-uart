@@ -54,14 +54,14 @@ int main(void)
 }
 
 ISR(PCINT0_vect) {
-    // Detect pin change to high on PB3
-    if (pb3_delay == 0 && PINB & (1 << PB3)) {
+    // Detect pin change to low on PB3
+    if (pb3_delay == 0 && !(PINB & (1 << PB3))) {
         pb3_delay = bounce_delay; // Debounce
         dbg_putchar('[');
     }
 
-    // Detect pin change to high on PB4
-    if (pb4_delay == 0 && PINB & (1 << PB4)) {
+    // Detect pin change to low on PB4
+    if (pb4_delay == 0 && !(PINB & (1 << PB4))) {
         pb4_delay = bounce_delay; // Debounce
         dbg_putchar(']');
     }
